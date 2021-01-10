@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<<<<<<< HEAD
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="332dp"
         android:layout_height="464dp"
-        app:srcCompat="@drawable/Splash_logo"
+        app:srcCompat="@drawable/splash_logo"
         tools:layout_editor_absoluteX="39dp"
         tools:layout_editor_absoluteY="133dp"
         tools:ignore="MissingConstraints" />
