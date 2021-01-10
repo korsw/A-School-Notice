@@ -12,12 +12,11 @@
         android:layout_width="332dp"
         android:layout_height="464dp"
         app:srcCompat="@drawable/splash_logo"
-        tools:layout_editor_absoluteX="39dp"
-        tools:layout_editor_absoluteY="133dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" /><![CDATA[
 =======
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
->>>>>>> origin/master
+    >>>>>>> origin/master
+]]>
 </androidx.constraintlayout.widget.ConstraintLayout>
