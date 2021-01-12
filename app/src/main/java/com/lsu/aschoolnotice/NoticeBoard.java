@@ -10,8 +10,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import org.w3c.dom.Element;
+
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class NoticeBoard extends AppCompatActivity {
     RecyclerView mRecyclerView = null;
@@ -36,29 +40,30 @@ public class NoticeBoard extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setHasFixedSize(true);
 
+        ListtoAddItem(MainActivity.crawler.Covidlist);
+        ListtoAddItem(MainActivity.crawler.Bachelorlist);
 
 
 
-        mImageDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.icon, null);
-        mMainText = "내용";
-        mSubText = "2021.01.01";
 
-        addItem(mImageDrawable, mMainText,  mSubText);
-        addItem(mImageDrawable, mMainText + " - 2",  mSubText);
-        addItem(mImageDrawable, mMainText + " - 3",  mSubText);
-        addItem(mImageDrawable, mMainText + " - 4",  mSubText);
-        addItem(mImageDrawable, mMainText + " - 5",  mSubText);
 
         mAdapter.notifyDataSetChanged();
     }
 
-    private void addItem(Drawable icon, String mainText, String subText) {
+    private void addItem(String mainText, String subText) {
         ShowNoticeBoardItem item = new ShowNoticeBoardItem();
 
-        item.setIcon(icon);
         item.setMainTitle(mainText);
         item.setSubTitle(subText);
 
         mList.add(item);
+    }
+
+    private void ListtoAddItem(List list){
+        for (int i = 0; i < list.size(); i += 5){
+            String mMainText = (String) list.get(i+1);
+            String mSubText = (String) list.get(i+3);
+            addItem(mMainText , mSubText);
+        }
     }
 }

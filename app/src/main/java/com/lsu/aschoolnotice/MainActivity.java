@@ -12,13 +12,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    RecyclerView mRecyclerView = null;
-    ShowNoticeBoardAdapter mAdapter = null;
-    ArrayList<ShowNoticeBoardItem> mList;
+    public static Crawler crawler;
 
-    private Drawable mImageDrawable;
-    private String mMainText;
-    private String mSubText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             public void run(){
                 Crawler crawler = new Crawler();
                 try {
-                    String title = crawler.covidNotice();
+                    crawler.main();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -50,6 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 2000);
+        }, 3000);
     }
 }

@@ -20,8 +20,9 @@ public class ShowNoticeBoardAdapter extends RecyclerView.Adapter<ShowNoticeBoard
         mData = data;
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -38,7 +39,6 @@ public class ShowNoticeBoardAdapter extends RecyclerView.Adapter<ShowNoticeBoard
         }
         ShowNoticeBoardItem item = mData.get(position);
         Log.v("KKW", " item ::  " + position);
-        holder.imageView.setBackground(item.getIconDrawable());
         holder.mainText.setText(item.getMainTitle());
         holder.subText.setText(item.getSubTitle());
     }
@@ -56,7 +56,6 @@ public class ShowNoticeBoardAdapter extends RecyclerView.Adapter<ShowNoticeBoard
         ViewHolder(View itemView) {
             super(itemView);
 
-            imageView = itemView.findViewById(R.id.item_image);
             mainText = itemView.findViewById(R.id.icon_main_text);
             subText = itemView.findViewById(R.id.icon_sub_text);
         }
