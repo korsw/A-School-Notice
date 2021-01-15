@@ -57,6 +57,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         mManager.notify(0, builder.build());
     }
 
+
     @Override
     public void onNewToken(String s) {
         super.onNewToken(s);
