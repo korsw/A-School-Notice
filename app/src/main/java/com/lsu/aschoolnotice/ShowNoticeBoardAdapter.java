@@ -1,6 +1,7 @@
 package com.lsu.aschoolnotice;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
@@ -79,7 +80,7 @@ public class ShowNoticeBoardAdapter extends RecyclerView.Adapter<ShowNoticeBoard
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // TODO : process click event.
+
                 }
             });
         }

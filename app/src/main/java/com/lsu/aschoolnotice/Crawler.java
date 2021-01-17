@@ -17,7 +17,7 @@ public class Crawler {
     public static List Employmentlist = new ArrayList();
     public static List Bachelorlist = new ArrayList();
 
-    public static void main() throws IOException {
+    public static void start() throws IOException {
 
 
         Covidlist = crawling("https://homepage.sch.ac.kr/sch/06/06050000.jsp");

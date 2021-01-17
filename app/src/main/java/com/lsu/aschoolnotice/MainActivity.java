@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             public void run(){
                 Crawler crawler = new Crawler();
                 try {
-                    crawler.main();
+                    crawler.start();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

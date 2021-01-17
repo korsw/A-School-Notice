@@ -41,8 +41,8 @@ public class NoticeBoard extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
 
         ListtoAddItem(MainActivity.crawler.Covidlist);
-        ListtoAddItem(MainActivity.crawler.Bachelorlist);
-
+        //ListtoAddItem(MainActivity.crawler.Bachelorlist);
+        //ListtoAddItem(MainActivity.crawler.Bachelorlist);
 
 
 
