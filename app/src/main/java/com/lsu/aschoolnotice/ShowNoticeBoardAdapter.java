@@ -1,13 +1,11 @@
 package com.lsu.aschoolnotice;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,11 +18,9 @@ public class ShowNoticeBoardAdapter extends RecyclerView.Adapter<ShowNoticeBoard
 
     private OnItemClickListener mListener = null ;
 
-    // Item의 클릭 상태를 저장할 array 객체
-    private SparseBooleanArray selectedItems = new SparseBooleanArray();
-    // 직전에 클릭됐던 Item의 position
-    private int prePosition = -1;
+    private int ClickPosition = 0;
 
+    // 생성자에서 데이터 리스트 객체를 전달받음.
     public ShowNoticeBoardAdapter(ArrayList<ShowNoticeBoardItem> data) {
         mData = data;
     }
@@ -41,7 +37,7 @@ public class ShowNoticeBoardAdapter extends RecyclerView.Adapter<ShowNoticeBoard
         return vh;
     }
 
-
+    //커스텀 리스너 인터페이스
     public interface OnItemClickListener {
         void onItemClick(View v, int position) ;
     }
@@ -51,6 +47,7 @@ public class ShowNoticeBoardAdapter extends RecyclerView.Adapter<ShowNoticeBoard
         this.mListener = listener ;
     }
 
+    // onBindViewHolder() - position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         if(mData == null) {
@@ -62,6 +59,7 @@ public class ShowNoticeBoardAdapter extends RecyclerView.Adapter<ShowNoticeBoard
         holder.subText.setText(item.getSubTitle());
     }
 
+    // getItemCount() - 전체 데이터 갯수 리턴.
     @Override
     public int getItemCount() {
         return mData.size();
@@ -80,9 +78,19 @@ public class ShowNoticeBoardAdapter extends RecyclerView.Adapter<ShowNoticeBoard
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    int pos = getAdapterPosition() ;
+                    if (pos != RecyclerView.NO_POSITION) {
+                        // 리스너 객체의 메서드 호출.
+                        if (mListener != null) {
+                            mListener.onItemClick(v, pos) ;
+                        }
+                    }
                 }
             });
         }
+    }
+
+    public int getPosition(){
+        return ClickPosition;
     }
 }

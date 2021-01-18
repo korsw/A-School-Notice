@@ -12,7 +12,8 @@ import android.widget.TextView;
 
 public class PopupActivity extends Activity {
 
-    TextView txtText;
+    TextView NoticeTitle;
+    TextView NoticeText;
 
 
     @Override
@@ -23,12 +24,16 @@ public class PopupActivity extends Activity {
         setContentView(R.layout.activity_popup);
 
         //UI 객체생성
-        txtText = (TextView)findViewById(R.id.txtText);
+        NoticeTitle = (TextView)findViewById(R.id.NoticeTitle);
+        NoticeText = (TextView)findViewById(R.id.NoticeText);
 
         //데이터 가져오기
         Intent intent = getIntent();
-        String data = intent.getStringExtra("data");
-        txtText.setText(data);
+        String Titledata = intent.getStringExtra("NoticeTitle");
+        String Textdata = intent.getStringExtra("NoticeText");
+        NoticeTitle.setText(Titledata);
+        NoticeText.setText(Textdata);
+
     }
 
     //확인 버튼 클릭

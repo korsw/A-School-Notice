@@ -1,8 +1,10 @@
 package com.lsu.aschoolnotice;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.icu.text.CaseMap;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
@@ -18,13 +20,9 @@ import java.util.Iterator;
 import java.util.List;
 
 public class NoticeBoard extends AppCompatActivity {
-    RecyclerView mRecyclerView = null;
-    ShowNoticeBoardAdapter mAdapter = null;
-    ArrayList<ShowNoticeBoardItem> mList;
-
-    private Drawable mImageDrawable;
-    private String mMainText;
-    private String mSubText;
+    RecyclerView mRecyclerView = null; //리사이클러뷰
+    ShowNoticeBoardAdapter mAdapter = null; //리사이클러뷰 어뎁터
+    ArrayList<ShowNoticeBoardItem> mList; //리사이클러뷰 내부 아이템 리스트
 
 
     @Override
@@ -40,12 +38,20 @@ public class NoticeBoard extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setHasFixedSize(true);
 
+        mAdapter.setOnItemClickListener(new ShowNoticeBoardAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                // TODO : 아이템 클릭 이벤트를 MainActivity에서 처리.
+                Intent intent = new Intent(getApplicationContext() ,PopupActivity.class);
+                intent.putExtra("NoticeTitle", (String) MainActivity.crawler.Covidlist.get(getPositionNum(position)));
+                intent.putExtra("NoticeText", (String) MainActivity.crawler.CovidTextlist.get(position));
+                startActivityForResult(intent, 1);
+            }
+        }) ;
+
         ListtoAddItem(MainActivity.crawler.Covidlist);
         //ListtoAddItem(MainActivity.crawler.Bachelorlist);
         //ListtoAddItem(MainActivity.crawler.Bachelorlist);
-
-
-
 
         mAdapter.notifyDataSetChanged();
     }
@@ -59,11 +65,16 @@ public class NoticeBoard extends AppCompatActivity {
         mList.add(item);
     }
 
+
     private void ListtoAddItem(List list){
         for (int i = 0; i < list.size(); i += 5){
             String mMainText = (String) list.get(i+1);
             String mSubText = (String) list.get(i+3);
             addItem(mMainText , mSubText);
         }
+    }
+
+    private int getPositionNum(int position){
+        return position*5+1;
     }
 }
