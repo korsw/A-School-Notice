@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    public static Crawler crawler;
 
 
     @Override
@@ -26,9 +25,8 @@ public class MainActivity extends AppCompatActivity {
         new Thread(){
             @Override
             public void run(){
-                Crawler crawler = new Crawler();
                 try {
-                    crawler.start();
+                    Crawler.start();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

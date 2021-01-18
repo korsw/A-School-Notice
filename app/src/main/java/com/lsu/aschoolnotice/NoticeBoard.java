@@ -43,13 +43,13 @@ public class NoticeBoard extends AppCompatActivity {
             public void onItemClick(View v, int position) {
                 // TODO : 아이템 클릭 이벤트를 MainActivity에서 처리.
                 Intent intent = new Intent(getApplicationContext() ,PopupActivity.class);
-                intent.putExtra("NoticeTitle", (String) MainActivity.crawler.Covidlist.get(getPositionNum(position)));
-                intent.putExtra("NoticeText", (String) MainActivity.crawler.CovidTextlist.get(position));
+                intent.putExtra("NoticeTitle", (String) Crawler.getCovidlist().get(getPositionNum(position)));
+                intent.putExtra("NoticeText", (String) Crawler.getCovidTextlist().get(position));
                 startActivityForResult(intent, 1);
             }
         }) ;
 
-        ListtoAddItem(MainActivity.crawler.Covidlist);
+        ListtoAddItem(Crawler.getCovidlist());
         //ListtoAddItem(MainActivity.crawler.Bachelorlist);
         //ListtoAddItem(MainActivity.crawler.Bachelorlist);
 

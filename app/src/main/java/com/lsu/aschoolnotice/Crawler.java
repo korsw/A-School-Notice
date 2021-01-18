@@ -12,14 +12,21 @@ import java.util.List;
 
 public class Crawler {
 
-    public static ArrayList Covidlist = new ArrayList();
-    public static ArrayList Employmentlist = new ArrayList();
-    public static ArrayList Bachelorlist = new ArrayList();
-    public static ArrayList CovidTextlist = new ArrayList();
-    public static ArrayList EmploymentTextlist = new ArrayList();
-    public static ArrayList BachelorTextlist = new ArrayList();
+    private static ArrayList Covidlist;
+    private static ArrayList Employmentlist;
+    private static ArrayList Bachelorlist;
+    private static ArrayList CovidTextlist;
+    private static ArrayList EmploymentTextlist;
+    private static ArrayList BachelorTextlist;
 
     public static void start() throws IOException {
+        Covidlist = new ArrayList<>();
+        Covidlist = new ArrayList<>();
+        Employmentlist = new ArrayList<>();
+        Bachelorlist = new ArrayList<>();
+        CovidTextlist = new ArrayList<>();
+        EmploymentTextlist = new ArrayList<>();
+        BachelorTextlist = new ArrayList<>();
         crawling("https://homepage.sch.ac.kr/sch/06/06050000.jsp", Covidlist, CovidTextlist);
 
         crawling("https://homepage.sch.ac.kr/sch/06/06010000.jsp", Employmentlist, EmploymentTextlist);
@@ -43,10 +50,8 @@ public class Crawler {
     public static void makeURLList(String url, Iterator<Element> El, ArrayList list) throws IOException{
         int i = 0;
         while (El.hasNext()) {
-            list.add(i, url + El.next().attr("href"));
-            Document Text = Jsoup.connect((String) list.get(i)).get();
+            Document Text = Jsoup.connect(url + El.next().attr("href")).get();
             Text.outputSettings().prettyPrint(false);
-            String string = String.valueOf(Text).replace("<br>", "\n");
             Elements TexteEL = Text.getElementsByAttributeValue("class", "text");
             Iterator<Element> El1 = TexteEL.select("div").iterator();
 
@@ -55,6 +60,24 @@ public class Crawler {
             }
             i++;
         }
+    }
+    public static ArrayList getCovidlist(){
+        return Covidlist;
+    }
+    public static ArrayList getCovidTextlist(){
+        return CovidTextlist;
+    }
+    public static ArrayList getEmploymentlist(){
+        return Employmentlist;
+    }
+    public static ArrayList getEmploymentTextlist(){
+        return EmploymentTextlist;
+    }
+    public static ArrayList getBachelorlist(){
+        return Bachelorlist;
+    }
+    public static ArrayList getBachelorTextlist(){
+        return BachelorTextlist;
     }
 }
 
