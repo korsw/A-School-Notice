@@ -26,7 +26,29 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run(){
                 try {
-                    Crawler.start();
+                    Crawler.Covidstart();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+
+        new Thread(){
+            @Override
+            public void run(){
+                try {
+                    Crawler.Bachelorstart();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+
+        new Thread(){
+            @Override
+            public void run(){
+                try {
+                    Crawler.Employmentstart();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

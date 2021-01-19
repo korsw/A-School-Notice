@@ -19,20 +19,35 @@ public class Crawler {
     private static ArrayList EmploymentTextlist;
     private static ArrayList BachelorTextlist;
 
-    public static void start() throws IOException {
+    public static void Covidstart() throws IOException {
         Covidlist = new ArrayList<>();
-        Covidlist = new ArrayList<>();
-        Employmentlist = new ArrayList<>();
-        Bachelorlist = new ArrayList<>();
+        //Bachelorlist = new ArrayList<>();
+        //Employmentlist = new ArrayList<>();
         CovidTextlist = new ArrayList<>();
-        EmploymentTextlist = new ArrayList<>();
-        BachelorTextlist = new ArrayList<>();
+        //Bachelorlist = new ArrayList<>();
+        //EmploymentTextlist = new ArrayList<>();
+
         crawling("https://homepage.sch.ac.kr/sch/06/06050000.jsp", Covidlist, CovidTextlist);
 
-        crawling("https://homepage.sch.ac.kr/sch/06/06010000.jsp", Employmentlist, EmploymentTextlist);
+        //crawling("https://homepage.sch.ac.kr/sch/05/05040100.jsp", Bachelorlist, BachelorTextlist);
 
+        //crawling("https://homepage.sch.ac.kr/sch/06/06010000.jsp", Employmentlist, EmploymentTextlist);
+
+    }
+
+    public static void Bachelorstart() throws IOException{
+        Bachelorlist = new ArrayList<>();
+        BachelorTextlist = new ArrayList<>();
         crawling("https://homepage.sch.ac.kr/sch/05/05040100.jsp", Bachelorlist, BachelorTextlist);
     }
+
+    public static void Employmentstart() throws IOException{
+        Employmentlist = new ArrayList<>();
+        EmploymentTextlist = new ArrayList<>();
+        crawling("https://homepage.sch.ac.kr/sch/06/06010000.jsp", Employmentlist, EmploymentTextlist);
+    }
+
+
 
     public static void crawling(String url, ArrayList Titlist, ArrayList Textlist) throws IOException {
         Document Notice = Jsoup.connect(url).get();
