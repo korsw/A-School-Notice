@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="280dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:id="@+id/drawerView"
+    android:background="#5559b4">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="#5559b4">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="공지사항"
+            android:textSize="26dp"
+            android:textColor="#ffffff"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="94dp"
+            >
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#80ffffff"
+            android:layout_marginTop="270dp">
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_notice"
+            android:layout_marginTop="298dp"
+            android:layout_marginLeft="20dp">
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="코로나 공지사항"
+            android:textColor="#ffffff"
+            android:id="@+id/nav_Covidlist"
+            android:layout_marginTop="298dp"
+            android:layout_marginLeft="44dp"
+            android:onClick="nav_Covidlist">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#80ffffff"
+            android:layout_marginTop="340dp">
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_notice"
+            android:layout_marginTop="368dp"
+            android:layout_marginLeft="20dp">
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="학사 공지사항"
+            android:textColor="#ffffff"
+            android:id="@+id/nav_Bachelorlist"
+            android:layout_marginTop="368dp"
+            android:layout_marginLeft="44dp"
+            android:onClick="nav_Bachelorlist">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#80ffffff"
+            android:layout_marginTop="410dp">
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_notice"
+            android:layout_marginTop="438dp"
+            android:layout_marginLeft="20dp">
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="취업 공지사항"
+            android:textColor="#ffffff"
+            android:id="@+id/nav_Employmentlist"
+            android:layout_marginTop="438dp"
+            android:layout_marginLeft="44dp"
+            android:onClick="nav_Employmentlist">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#80ffffff"
+            android:layout_marginTop="480dp">
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

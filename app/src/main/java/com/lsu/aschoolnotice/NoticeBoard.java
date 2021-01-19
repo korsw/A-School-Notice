@@ -5,6 +5,8 @@ import android.graphics.drawable.Drawable;
 import android.icu.text.CaseMap;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
@@ -49,9 +51,36 @@ public class NoticeBoard extends AppCompatActivity {
             }
         }) ;
 
-        ListtoAddItem(Crawler.getCovidlist());
-        //ListtoAddItem(MainActivity.crawler.Bachelorlist);
-        //ListtoAddItem(MainActivity.crawler.Bachelorlist);
+        TextView Ctextview = (TextView) findViewById(R.id.nav_Covidlist);
+        Ctextview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ListtoAddItem(Crawler.getCovidlist());
+                Toast.makeText(getApplicationContext(), "코로나 공지사항입니다.",  Toast.LENGTH_LONG).show();
+            }
+        });
+
+        TextView Btextview = (TextView) findViewById(R.id.nav_Bachelorlist);
+        Btextview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ListtoAddItem(Crawler.getBachelorlist());
+                Toast.makeText(getApplicationContext(), "학사 공지사항입니다.",  Toast.LENGTH_LONG).show();
+            }
+        });
+
+        TextView Etextview = (TextView) findViewById(R.id.nav_Employmentlist);
+        Btextview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ListtoAddItem(Crawler.getEmploymentlist());
+                Toast.makeText(getApplicationContext(), "취업 공지사항입니다.",  Toast.LENGTH_LONG).show();
+            }
+        });
+
+        //ListtoAddItem(Crawler.getCovidlist());
+        //ListtoAddItem(Crawler.getBachelorlist());
+        //ListtoAddItem(Crawler.getEmploymentlist());
 
         mAdapter.notifyDataSetChanged();
     }
