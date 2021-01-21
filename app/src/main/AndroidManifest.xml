@@ -18,9 +18,10 @@
             android:theme="@android:style/Theme.Dialog" />
         <activity
             android:name=".NoticeBoard"
-            android:label="@string/title_activity_notice_board"
-            android:theme="@style/Theme.ASchoolNotice.NoActionBar" />
-        <activity android:name=".MainActivity">
+            android:label="@string/title_activity_notice_board" />
+            <!--android:theme="@style/Theme.ASchoolNotice.NoActionBar" /> -->
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.ASchoolNotice.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
