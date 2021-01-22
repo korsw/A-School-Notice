@@ -20,6 +20,8 @@ tools:context=".MainActivity">
 
     <include layout="@layout/activity_navigation_drawer"/>
 
+
+
 </androidx.drawerlayout.widget.DrawerLayout>
 
     <!--<?xml version="1.0" encoding="utf-8"?>
